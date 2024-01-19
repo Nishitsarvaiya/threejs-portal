@@ -1,13 +1,10 @@
-import { CameraControls, CubeCamera, Environment, OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import AK47 from "./AK47";
-import AR15 from "./AR15";
+import { CameraControls } from "@react-three/drei";
 import Door from "./Door";
 import Ground from "./Ground";
-import SMG from "./SMG";
-import Soldier from "./Soldier";
-import { useEffect, useRef, useState } from "react";
 import { useThree } from "@react-three/fiber";
+import { useEffect, useRef, useState } from "react";
 import { Vector3 } from "three";
+import Russian_soldier from "./Russian_soldier";
 
 export const Experience = () => {
 	const [active, setActive] = useState(null);
@@ -79,7 +76,7 @@ export const Experience = () => {
 				setActive={setActive}>
 				{/* <SMG scale={0.7} rotation-y={Math.PI / 2} position-x={-0.2} /> */}
 			</Door>
-			<Soldier scale={2} />
+			<Russian_soldier />
 		</>
 	);
 };

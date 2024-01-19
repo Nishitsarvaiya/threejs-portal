@@ -18,11 +18,12 @@ export const Experience = () => {
 		if (active) {
 			const targetPos = new Vector3();
 			scene.getObjectByName(active).getWorldPosition(targetPos);
-			controlsRef.current.setLookAt(0, targetPos.y, 0, targetPos.x, targetPos.y, targetPos.z, true);
+			controlsRef.current.fitToBox(scene.getObjectByName(active), true, { cover: true });
+			controlsRef.current.setPosition(0, targetPos.y, (targetPos.z / Math.PI) * 1.5, true);
 			controlsRef.current.maxPolarAngle = Math.PI;
 			controlsRef.current.minPolarAngle = 0;
 		} else {
-			controlsRef.current.setLookAt(8, 8, 15, 0, 0, 0, true);
+			controlsRef.current.setLookAt(10, 8, 15, 0, 0, 0, true);
 			controlsRef.current.maxPolarAngle = Math.PI / 2;
 			controlsRef.current.minPolarAngle = 0;
 		}
@@ -30,7 +31,7 @@ export const Experience = () => {
 
 	return (
 		<>
-			<CameraControls maxPolarAngle={1.45} ref={controlsRef} />
+			<CameraControls maxPolarAngle={1.45} ref={controlsRef} dollyDragInverted smoothTime={0.36} />
 			<color args={["#000"]} attach="background" />
 			{/* <ambientLight intensity={0.2} /> */}
 			<spotLight
@@ -60,7 +61,7 @@ export const Experience = () => {
 				args={[4, 6, 0.1]}
 				position={[6, 3, -4]}
 				rotation-y={Math.PI / -3}
-				env="sunset"
+				env="dawn"
 				texture="world3"
 				name="AK-47s"
 				active={active}
@@ -71,7 +72,7 @@ export const Experience = () => {
 				args={[4, 6, 0.1]}
 				position={[-6, 3, -4]}
 				rotation-y={Math.PI / 3}
-				env="forest"
+				env="apartment"
 				texture="world4"
 				name="SMG"
 				active={active}

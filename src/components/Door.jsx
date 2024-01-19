@@ -15,7 +15,7 @@ export default function Door({ env, texture, active, setActive, name, children, 
 
 	return (
 		<group>
-			<Box {...restProps} onClick={() => setActive(active === name ? null : name)} name={name}>
+			<Box {...restProps} onDoubleClick={() => setActive(active === name ? null : name)} name={name}>
 				<MeshPortalMaterial side={BackSide} ref={portalRef}>
 					<color args={["#000"]} attach="background" />
 					<ambientLight intensity={3} />

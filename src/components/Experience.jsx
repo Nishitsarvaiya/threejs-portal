@@ -34,7 +34,7 @@ export const Experience = () => {
 
 	return (
 		<>
-			<CameraControls maxPolarAngle={1.45} ref={controlsRef} smoothTime={0.36} />
+			<CameraControls maxPolarAngle={1.45} ref={controlsRef} smoothTime={0.36} dollyDragInverted />
 			<color args={["#000"]} attach="background" />
 			{/* <ambientLight intensity={0.2} /> */}
 			<spotLight

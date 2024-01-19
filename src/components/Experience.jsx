@@ -10,7 +10,7 @@ import { useThree } from "@react-three/fiber";
 import { Vector3 } from "three";
 
 export const Experience = () => {
-	const [active, setActive] = useState("AK-47s");
+	const [active, setActive] = useState(null);
 	const controlsRef = useRef(null);
 	const scene = useThree((state) => state.scene);
 

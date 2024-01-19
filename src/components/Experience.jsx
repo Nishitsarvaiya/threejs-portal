@@ -5,11 +5,13 @@ import { useThree } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 import { Vector3 } from "three";
 import Russian_soldier from "./Russian_soldier";
+import { isTouchEnabledDevice } from "../helpers";
 
 export const Experience = () => {
 	const [active, setActive] = useState(null);
 	const controlsRef = useRef(null);
 	const scene = useThree((state) => state.scene);
+	const isMobile = isTouchEnabledDevice();
 
 	useEffect(() => {
 		if (active) {
@@ -20,7 +22,11 @@ export const Experience = () => {
 			controlsRef.current.maxPolarAngle = Math.PI;
 			controlsRef.current.minPolarAngle = 0;
 		} else {
-			controlsRef.current.setLookAt(10, 8, 15, 0, 0, 0, true);
+			if (isMobile) {
+				controlsRef.current.setPosition(30, 12, 30, true);
+			} else {
+				controlsRef.current.setPosition(16, 8, 18, true);
+			}
 			controlsRef.current.maxPolarAngle = Math.PI / 2;
 			controlsRef.current.minPolarAngle = 0;
 		}
@@ -28,7 +34,7 @@ export const Experience = () => {
 
 	return (
 		<>
-			<CameraControls maxPolarAngle={1.45} ref={controlsRef} dollyDragInverted smoothTime={0.36} />
+			<CameraControls maxPolarAngle={1.45} ref={controlsRef} smoothTime={0.36} />
 			<color args={["#000"]} attach="background" />
 			{/* <ambientLight intensity={0.2} /> */}
 			<spotLight

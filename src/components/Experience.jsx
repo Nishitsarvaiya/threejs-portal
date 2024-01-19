@@ -55,7 +55,7 @@ export const Experience = () => {
 				name="AR-15"
 				active={active}
 				setActive={setActive}>
-				<AR15 scale={0.5} rotation-y={Math.PI / 2} />
+				{/* <AR15 scale={0.5} rotation-y={Math.PI / 2} /> */}
 			</Door>
 			<Door
 				args={[4, 6, 0.1]}
@@ -66,7 +66,7 @@ export const Experience = () => {
 				name="AK-47s"
 				active={active}
 				setActive={setActive}>
-				<AK47 scale={0.3} rotation-y={Math.PI / 2} />
+				{/* <AK47 scale={0.3} rotation-y={Math.PI / 2} /> */}
 			</Door>
 			<Door
 				args={[4, 6, 0.1]}
@@ -77,7 +77,7 @@ export const Experience = () => {
 				name="SMG"
 				active={active}
 				setActive={setActive}>
-				<SMG scale={0.7} rotation-y={Math.PI / 2} position-x={-0.2} />
+				{/* <SMG scale={0.7} rotation-y={Math.PI / 2} position-x={-0.2} /> */}
 			</Door>
 			<Soldier scale={2} />
 		</>
